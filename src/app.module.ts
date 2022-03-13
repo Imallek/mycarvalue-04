@@ -13,7 +13,8 @@ import { Report } from './reports/report.entity';
       type: 'sqlite',
       database: 'db.sqlite',
       entities: [User, Report],
-      synchronize: true,
+      synchronize: true, // This option makes TypeOrm to see all the new changes in the structure of your entity and apply them to database
+      // VERY DANGEROUS FOR PRODUCTION ENVIRONMENT, you could accidently delete your users table for example
     }),
     UsersModule,
     ReportsModule,
